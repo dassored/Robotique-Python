@@ -1,0 +1,52 @@
+class Menu:
+    def __init__(self):
+        self.items = {
+            "1": {"name": "Pizza", "price": 10.99},
+            "2": {"name": "Pasta", "price": 8.99},
+            "3": {"name": "Salad", "price": 5.99},
+            # Ajoutez d'autres éléments du menu ici
+        }
+
+    def display_menu(self):
+        print("Menu:")
+        for number, item in self.items.items():
+            print(f"{number}. {item['name']} - ${item['price']}")
+
+    def get_item_price(self, item_number):
+        item = self.items.get(item_number)
+        return item['price'] if item else None
+
+class RobotServer:
+    def __init__(self):
+        self.menu = Menu()
+        self.orders = []
+
+    def take_order(self):
+        self.menu.display_menu()
+        while True:
+            item_number = input("Veuillez saisir le numéro de l'article que vous souhaitez commander (ou 'q' pour quitter): ")
+            if item_number.lower() == 'q':
+                break
+            item_price = self.menu.get_item_price(item_number)
+            if item_price is not None:
+                self.orders.append({"item_number": item_number, "price": item_price})
+                print(f"{self.menu.items[item_number]['name']} a été ajouté à votre commande.")
+            else:
+                print("Numéro d'article invalide. Veuillez réessayer.")
+
+    def display_bill(self):
+        total = sum(order["price"] for order in self.orders)
+        print("\nVotre commande:")
+        for order in self.orders:
+            print(f"{self.menu.items[order['item_number']]['name']} - ${order['price']}")
+        print(f"\nTotal à payer: ${total:.2f}")
+
+def main():
+    print("Bienvenue dans le restaurant!")
+    robot_server = RobotServer()
+    robot_server.take_order()
+    robot_server.display_bill()
+    print("\nMerci de votre visite. À bientôt!")
+
+if __name__ == "__main__":
+    main()
