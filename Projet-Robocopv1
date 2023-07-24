@@ -1,0 +1,43 @@
+class RoboPolice:
+    def __init__(self):
+        self.power = 100
+        self.location = (0, 0)
+        self.is_armed = False
+
+    def move(self, x, y):
+        self.location = (self.location[0] + x, self.location[1] + y)
+        print(f"Robot police moved to location {self.location}")
+
+    def arm(self):
+        self.is_armed = True
+        print("Robot police is now armed and ready to take action.")
+
+    def disarm(self):
+        self.is_armed = False
+        print("Robot police is now disarmed.")
+
+    def recharge(self):
+        self.power = 100
+        print("Robot police has been recharged and power is at 100%.")
+
+    def shoot(self, target):
+        if not self.is_armed:
+            print("Cannot shoot, the robot police is not armed.")
+            return
+
+        if self.power >= 10:
+            self.power -= 10
+            print(f"Robot police shot {target}! Power remaining: {self.power}%")
+        else:
+            print("Not enough power to shoot. Please recharge.")
+
+# Créer une instance du robot police
+robocop = RoboPolice()
+
+# Donner des instructions au robot police
+robocop.move(5, 3)
+robocop.arm()
+robocop.move(-2, 1)
+robocop.shoot("criminal")
+robocop.disarm()
+robocop.recharge()
