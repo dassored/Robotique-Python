@@ -1,0 +1,46 @@
+import time
+def dormir():
+    print("Zzz... Zzz... Zzz...")
+    time.sleep(5)
+    print("Se réveille tout frais et reposé !")
+
+
+def jouer_a_la_souris():
+    print("Attrape la petite souris ! Miaou!")
+    time.sleep(2)
+    print("C'était vraiment amusant !")
+
+def manger():
+    print("Miam miam... délicieux !")
+    time.sleep(3)
+    print("Repu et plein d'énergie !")
+
+def dominer_le_monde():
+    print("Muahahaha ! Je suis le maître du monde !")
+    time.sleep(1)
+    print("Bon, wolrd domination par les chat !")
+
+   # Programme principal
+while True:
+    print("Que voulez-vous faire ?") 
+    print("1) Dormir")
+    print("2) Jouer à la souris")
+    print("3) Manger")
+    print("4) Dominer le monde")
+    print("5) Quitter")
+
+    choix = input("Entrez le numéro de l'instruction : ") 
+
+    if choix == "1":
+        dormir()
+    elif choix =="2":
+        jouer_a_la_souris()
+    elif choix =="3" :
+        manger()
+    elif choix == "4":
+        dominer_le_monde()
+    elif choix == "5":
+        print("Au revoir !")
+        break
+    else:
+        print("Choix invalide. Veuillez choisir un numéro valide.")
