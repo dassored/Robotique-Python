@@ -1,0 +1,42 @@
+import time
+
+class Drone:
+    def __init__(self):
+        self.current_position = (0, 0)
+
+    def takeoff(self):
+        print("Le drone Amazone décolle.")
+
+    def fly_to(self, destination):
+        print(f"Le drone se dirige vers la destination {destination}.")
+        time.sleep(2)  # Temps de simulation pour le vol (à remplacer par des coordonnées GPS réelles).
+
+    def deliver_package(self):
+        print("Le drone dépose le colis la Tour Eiffel à Paris .")
+        time.sleep(2)  # Temps de simulation pour la livraison.
+
+    def return_to_base(self):
+        print("Le drone retourne à sa base.")
+        time.sleep(2)  # Temps de simulation pour le vol de retour.
+
+    def land(self):
+        print("Le drone atterrit.")
+
+def main():
+    drone = Drone()
+
+    # Coordonnées GPS de la destination de livraison (à remplacer par des coordonnées réelles).
+    destination  = (48.858889, 2.294722  )  # Coordonnées de la Tour Eiffel à Paris
+
+    drone.takeoff()
+    drone.fly_to(destination)
+    drone.deliver_package()
+    drone.return_to_base()
+    drone.land()
+
+if __name__ == "__main__":
+    main()
+
+
+
+
