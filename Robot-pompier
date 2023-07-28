@@ -1,0 +1,34 @@
+class RobotPompier:
+    def __init__(self):
+        self.position = (0, 0)
+        self.water_level = 100
+
+    def move(self, x, y):
+        self.position = (self.position[0] + x, self.position[1] + y)
+        print(f"Robot pompier déplacé à la position {self.position}")
+
+    def extinguish_fire(self):
+        if self.water_level > 0:
+            self.water_level -= 20
+            print("Feu éteint !")
+        else:
+            print("Niveau d'eau trop bas, rechargez le robot pompier.")
+
+if __name__ == "__main__":
+    robot = RobotPompier()
+
+    while True:
+        instruction = input("Entrez une instruction (déplacer X Y / éteindre) : ")
+        instruction = instruction.lower()
+
+        if instruction == "quitter":
+            print("Fin du programme.")
+            break
+        elif "déplacer" in instruction:
+            _, x, y = instruction.split()
+            x, y = int(x), int(y)
+            robot.move(x, y)
+        elif instruction == "éteindre":
+            robot.extinguish_fire()
+        else:
+            print("Instruction invalide. Veuillez réessayer.")
