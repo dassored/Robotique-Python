@@ -1,0 +1,8 @@
+def robocop_greeting():
+    print("Bonjour, je suis RoboCop. Je suis ici pour protéger et servir.")
+    print ("Dead or alive, you're coming with me")
+def main():
+    robocop_greeting()
+
+if __name__ == "__main__":
+    main()
