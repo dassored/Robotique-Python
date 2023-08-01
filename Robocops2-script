@@ -1,0 +1,38 @@
+class RobotPolice:
+    def __init__(self, name):
+        self.name = name
+        self.is_armed = False
+        self.is_patrolling = False
+
+    def arm(self):
+        self.is_armed = True
+        print(f"{self.name} est armé et prêt à agir.")
+
+    def disarm(self):
+        self.is_armed = False
+        print(f"{fself.name} a désarmé son arme.")
+
+    def patrol(self):
+        self.is_patrolling = True
+        print(f"{self.name} est en patrouille dans la zone.")
+
+    def stop_patrol(self):
+        self.is_patrolling = False
+        print(f"{self.name} a arrêté la patrouille.")
+
+    def investigate_incident(self, location):
+        if self.is_armed:
+            print(f"{self.name} enquête sur un incident à {location}.")
+        else:
+            print(f"{self.name} ne peut pas enquêter sans être armé.")
+
+def main():
+    robocop = RobotPolice("RoboCop")
+    robocop.arm()
+    robocop.patrol()
+    robocop.investigate_incident("la banque")
+    robocop.stop_patrol()
+    robocop.disarm()
+
+if __name__ == "__main__":
+    main()
